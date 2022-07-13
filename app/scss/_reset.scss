@@ -30,13 +30,22 @@ blockquote {
    margin: 0;
 }
 
-ul {
+ul,
+address {
    list-style: none;
+   font-style: normal;
 }
 
 img {
-   max-width: 100%;
+   // max-width: 100%;
    display: block;
+}
+
+button {
+   padding: 0;
+   cursor: pointer;
+   background-color: transparent;
+   color: inherit;
 }
 
 input,
@@ -44,7 +53,6 @@ button,
 textarea,
 select {
    font: inherit;
-   padding: 0;
 }
 
 a {
