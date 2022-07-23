@@ -1,6 +1,7 @@
 @import 'vars';
 @import 'fonts';
 @import 'reset';
+@import 'libs';
 @import 'global';
 
 
@@ -19,6 +20,7 @@
    align-items: center;
    font-size: 18px;
    line-height: 21px;
+   
 
    &__list {
       display: flex;
@@ -39,7 +41,7 @@
 
       &:focus {
          background-color: rgba(255, 255, 255, 0.01);
-         box-shadow: 0px 0px 0px 2px $boxshadow;
+         box-shadow: 0 0 0 2px $boxshadow;
          border-radius: 5px;
          color: $title;
       }
@@ -62,9 +64,23 @@
       background-color: transparent;
       border: 2px solid transparent;
       border-radius: 5px;
-      padding: 10px;
-
+      padding: 7px 10px 4px 10px;
    }
+
+   &__search {
+      width: 23px;
+      height: 23px;
+      fill: none;
+      stroke: currentColor;
+   }
+   
+   &__cart {
+      width: 20px;
+      height: 23px;
+      fill: none;
+      stroke: currentColor;
+   }
+
    &__links {
       transition: .3s ease-in-out;
 
@@ -76,38 +92,43 @@
          color: $wt;
          border-radius: 5px;
          background-color: $hover;
+
+         & svg {
+           stroke: $wt;
+         }
+
+         & span {
+         color: $accent;
+         background-color: $wt;
+         }
       }
 
       &:focus {
          background-color: $hovershadow;
-         box-shadow: 0px 0px 0px 2px $boxshadow;
+         box-shadow: 0 0 0 2px $boxshadow;
+
+         & svg {
+            fill: $title;
+         }
+
+         & span {
+            color: $wt;
+            background-color: $accent;
+         }
       }
 
       &:active {
          background-color: $active;
-         box-shadow: 0px 0px 0px 2px transparent;
-      }
-      
-      &:hover span {
-         color: $accent;
-         background-color: $wt;
-      }
+         box-shadow: 0 0 0 2px transparent;
 
-      &:focus span {
-         color: $wt;
-         background-color: $accent;
-      }
-      
-      &:hover img {
-         filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
-      }
+         & svg {
+            stroke: $title;
+         }
 
-      &:focus img {
-         color: $title;
-      }
-      
-      &:active img {
-         color: $title;
+         & span {
+            color: $wt;
+            background-color: $accent;
+         }
       }
    }
 
@@ -117,7 +138,7 @@
       height: 14px;
       border-radius: 50%;
       background-color: $accent;
-      top: 7px;
+      top: 4px;
       left: 25px;
       color: $wt;
       font-size: 10px;
@@ -151,7 +172,7 @@
       font-weight: 500;
       max-width: 450px;
       text-transform: uppercase;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
    }
 
    &__span {
@@ -199,27 +220,58 @@
       border-radius: 5px;
       transition: .3s ease-in-out;
 
+      & svg {
+         width: 54px;
+         height: 45px;
+         padding-right: 10px;
+         transition: .3s ease-in-out;
+      }
+
       &:hover {
          color: $accent;
          background-color: $hovershadow;
-         box-shadow: 0px 0px 0px 2px $boxshadow;
-         filter: $fillaccent;
+         box-shadow: 0 0 0 2px $boxshadow;
+         & svg {
+            fill: $accent;
+         }
       }
 
       &:focus {
          background-color: $wt;
-         box-shadow: 0px 0px 0px 2px $boxshadow;
+         box-shadow: 0 0 0 2px $boxshadow;
          color: $title;
       }
 
       &:active {
          background-color: $wt;
-         box-shadow: inset 0px -5px 12px $boxshadowpale;
+         box-shadow: inset 0 -5px 12px $boxshadowpale;
          color: $title;
+         & svg {
+            fill: $title;
+         }
+      }
+   }
+
+   .mixitup-control-active {
+      background-color: $accent;
+      color: $wt;
+      & svg {
+         fill: $wt;
       }
 
-      & img {
-         padding-right: 10px;
+      &:hover {
+         color: $accent;
+         background-color: $hovershadow;
+         & svg {
+            fill: $accent;
+         }
+      }
+      &:focus {
+         background-color: $wt;
+         color: $title;
+         & svg {
+            fill: $title;
+         }
       }
    }
    
@@ -243,17 +295,9 @@
       left: 50%;
       transform: translateX(-50%);
    }
+   
 }
-
-.mixitup-control-active {
-   background-color: $accent;
-   color: $wt;
-
-   & img {
-      filter: $fillwhite;
-   }
-}
-
+   
 .meal-card {
    background-color: $wt;
    border: 1px solid $shadows;
@@ -295,8 +339,350 @@
    }
 
    &__btn {
-      padding: 3px 15px;
+      padding: 3px 14px;
       font-size: 14px;
+   }
+}
+
+.delivery {
+   background-repeat: no-repeat;
+   margin-left: 70px;
+   margin-bottom: 113px;
+   height: 62vh;
+
+   &__inner {
+      max-width: 470px;
+      margin-left: auto;
+      margin-right: 70px;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      
+      & svg {
+         width: 34px;
+         height: 34px;
+         margin-right: 30px;
+
+         &.timer {
+            fill: $accent;
+         }
+         &.scooter {
+            fill: #00AAFF;
+         }
+         &.restaurant {
+            fill: #FF2222;
+         }
+      }
+   }
+   &__title {
+      margin-bottom: 29px;
+   }
+
+   &__message {
+      opacity: 0.9;
+      margin-bottom: 30px;
+   }
+
+   &__list {
+      margin-bottom: 32px;
+   }
+
+   &__service {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+
+      &:not(:last-child) {
+         margin-bottom: 20px;
+      }
+   }
+
+   &__button {
+      font-size: 18px;
+   }
+}
+
+.restaurants {
+   margin-bottom: 120px;
+
+   &__title {
+      text-align: center;
+      margin-bottom: 45px;
+   }
+
+   &__inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+   }
+}
+.restaurants-card {
+   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+   display: inline-block;
+   border-radius: 10px;
+   transition: .3s ease-in-out;
+   border-radius: 10px;
+
+   &:hover {
+      box-shadow: 0 3px 15px $boxshadow;
+      border-radius: 10px;
+   }
+
+   &__title {
+      font-size: 24px;
+      line-height: 1.3;
+      padding-left: 20px;
+      font-weight: 400;
+   }
+
+   &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+   }
+
+   & img {
+      margin-bottom: 15px;
+   }
+
+   &__clock {
+      width: 22px;
+      height: 22px;
+      margin-right: 10px;
+   }
+
+   &__time {
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 167%;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+   }
+
+   &__btn {
+      border-radius: 20px;
+      padding: 3px 26px;
+
+      & svg {
+         width: 23px;
+         height: 23px;
+         fill: $wt;
+      }
+
+      &:hover {
+         padding: 3px 10px 3px 42px;
+         & svg {
+            fill: $accent;
+         }
+      }
+      
+      &:focus {
+         background-color: $active;
+         & svg {
+            fill: $accent;
+         }
+      }
+   }
+}
+
+.review {
+   margin-bottom: 132px;
+
+   &__title {
+      text-align: center;
+      margin-bottom: 45px;
+   }
+
+   &__slider {
+      position: relative;
+   }
+
+   &__img {
+      border-radius: 50%;
+      max-width: 300px;
+      max-height: 300px;
+      margin-left: 90px;
+      margin-right: 25px;
+   }
+
+   &__quote {
+      & svg {
+         fill: $footer;
+         width: 24px;
+         height: 20px;
+         margin: 0 16px;
+      }
+   }
+
+   &__quotesup {
+      margin-bottom: 18%;
+   }
+
+   &__quotesdown {
+      margin-top: 4%;
+   }
+
+   &__wrapper {
+      display: flex;
+      min-width: 0;
+      align-items: center;
+      margin-bottom: 58px;
+   }
+
+   &__inner {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+   }
+
+   &__blockquote {
+      font-style: italic;
+      max-width: 570px;
+      margin-bottom: 30px;
+   }
+
+   &__name {
+      font-weight: 500;
+      line-height: 1.3;
+      color: $accent;
+      margin-bottom: 15px;
+   }
+
+   &__client {
+      font-size: 14px;
+      line-height: 1.3;
+   }
+
+   &__arrow {
+      position: absolute;
+      bottom: -12px;
+      line-height: 0;
+      cursor: pointer;
+      border: 3px solid $footer;
+      border-radius: 50%;
+      transition: .3s ease-in-out;
+
+      & svg {
+         width: 34px;
+         height: 34px;
+         fill: $footer;
+         transition: .3s ease-in-out;
+      }
+
+      &:hover {
+         background-color: $active;
+         border: 3px solid #FFAE94;
+
+         & svg {
+            fill: #FFAE94;
+         }
+      }
+
+      &:focus {
+         box-shadow: 0 0 0 2px $boxshadow;
+      }
+
+      &:active {
+         background-color: $active;
+         border: 3px solid $active;
+         & svg {
+            fill: $hover;
+         }
+      }
+
+      &.slick-active {
+         svg {
+            fill: $accent;
+         }
+      }
+   }
+
+   &__arrow-right {
+      left: 56%;
+   }
+
+   &__arrow-left {
+      left: 40%;
+   }
+
+   .slick-dots {
+      display: flex;
+      justify-content: center;
+
+      li {
+         line-height: 0;
+
+         &:not(:last-child) {
+            padding-right: 15px;
+         }
+
+         button {
+            width: 15px;
+            height: 15px;
+            padding: 0;
+            font-size: 0;
+            border: 1px solid transparent;
+            border-radius: 50%;
+            background-color: $footer;
+            transition: .3s ease-in-out;
+
+            &:hover {
+               background-color: $active;
+               box-shadow: 0 0 0 2px rgba(255, 122, 80, 0.7);
+            }
+
+            &:focus {
+               background-color: $footer;
+               box-shadow: 0px 0px 0px 2px $accent;
+            }
+
+            &:active {
+               background-color: #FFAE94;
+            }
+         }
+         &.slick-active {
+            button {
+               background-color: $accent;
+            }
+         }
+      }
+   }
+}
+
+.mobile {
+   margin-bottom: 125px;
+
+   &__inner {
+      background-repeat: no-repeat;
+      background-position: right;
+      height: 40vh;
+   }
+
+   &__wrapper {
+      position: relative;
+      top: 50%;
+      transform: translatey(-50%);
+   }
+
+   &__title {
+      max-width: 540px;
+      margin-bottom: 45px;
+   }
+
+   &__message {
+      margin-bottom: 30px;
+      max-width: 540px;
+   }
+
+   &__downloads {
+      display: flex;
+   }
+
+   &__link {
+      &:not(:last-child) {
+         margin-right: 30px;
+      }
    }
 }
 
@@ -308,6 +694,7 @@
       width: 100%;
    }
 }
+
 .footer-top {
    font-size: 18px;
    line-height: 1.3;
@@ -325,38 +712,38 @@
       padding: 11px 37px;
       font-size: 14px;
 
-      & img {
+      & svg {
+         width: 30px;
+         height: 18px;
          padding-right: 15px;
-         transition: color .3s ease-in-out;
+         transition: .3s ease-in-out;
+         fill: $wt;
       }
 
-      &:hover img {
-         filter: $fillaccentwt;
+      &:hover {
+         & svg {
+           fill: $accent;
+        }
       }
-      
-      &:focus img {
-         filter: $fillaccent;
+
+      &:focus {
+         & svg {
+            fill: $accent;
+         }
       }
    }
 
    &__item {
-      margin-bottom: 12px;
       transition: .3s ease-in-out;
-      box-shadow: 0px 0px 0px 2px transparent;
 
-      & svg {
-         stroke: currentColor;
-         fill: context-stroke;
-         width: 24px;
-         height: 24px;
-         margin-right: 2px;
-      }
       &:hover {
          color: $accent;
       }
+
       &:focus {
-         box-shadow: 0px 0px 0px 2px $boxshadow;
+         box-shadow: 0 0 0 2px $boxshadow;
       }
+
       &:active {
          color: $title;
          text-shadow: 2px 2px 5px rgba(54, 56, 83, 0.5);
@@ -380,7 +767,7 @@
       }
 
       &:focus {
-         box-shadow: 0px 0px 0px 2px $accent;
+         box-shadow: 0 0 0 2px $accent;
       }
    }
 
@@ -393,41 +780,87 @@
       margin-top: -7px;
    }
 
-   &__address {
+   .address {
       font-size: 16px;
       line-height: 2;
       margin-left: 33px;
-   }
 
-   &__socials {
-      display: flex;
-   }
+      &__list-item {
+         margin-bottom: 15px;
+         transition: color .3s ease-in-out;
+         
+         &:hover {
+            color: $accent;
+         }
 
-   &__social {
-      display: flex;
-      width: 39px;
-      height: 39px;
-      border-radius: 50%;
-      background-color: $shadows;
-      margin-right: 13px;
-      position: relative;
-      transition: .3s ease-in-out;
-
-      & svg {
-         fill: currentColor;
-         width: 20px;
-         height: 20px;
-         position: absolute;
-         top: 10px;
-         left: 10px;
+         &:focus {
+            color: currentColor;
+            box-shadow: 0 0 0 2px $boxshadow;
+         }
+         
+         &:active {
+            color: $title;
+            text-shadow: 2px 2px 5px rgba(54, 56, 83, 0.5);
+         }
       }
 
-      &:hover {
-         background-color: $accent;
+      &__link {
+         display: flex;
+         align-items: center;
+         
+         & svg {
+            stroke: currentColor;
+            fill: none;
+            width: 24px;
+            height: 24px;
+            margin-right: 7px;
+         }
       }
+      
+      
+      &__socials {
+         display: flex;
+      }
+      
+      &__social {
+         display: flex;
+         width: 39px;
+         height: 39px;
+         border-radius: 50%;
+         background-color: $shadows;
+         margin-right: 13px;
+         position: relative;
+         transition: .3s ease-in-out;
+         width: 39px;
+      
+         & svg {
+            fill: currentColor;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+         }
+      
+         &:hover {
+            background-color: $accent;
+            & svg {
+               fill: $wt;
+            }
+         }
 
-      &:hover svg {
-         fill: $wt;
+         &:focus {
+            background-color: $active;
+            box-shadow: 0 0 0 2px $boxshadow;
+         }
+
+         &:active {
+            background-color: $active;
+
+            & svg {
+               fill: $hover;
+            }
+         }
       }
    }
 }

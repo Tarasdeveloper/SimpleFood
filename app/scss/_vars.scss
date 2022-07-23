@@ -11,6 +11,14 @@ $wt: #ffffff;
 $pale: rgba(255, 255, 255, 0.01);
 $boxshadowpale: rgba(255, 104, 56, 0.2);
 $footer: #C2C2C2;
-$fillwhite: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
-$fillaccent: invert(51%) sepia(52%) saturate(2759%) hue-rotate(337deg) brightness(101%) contrast(101%);
-$fillaccentwt: invert(47%) sepia(24%) saturate(5337%) hue-rotate(337deg) brightness(103%) contrast(102%);
+
+
+
+@function max($numbers...) {
+   @return m#{a}x(#{$numbers});
+}
+@function min($numbers...) {
+   @return m#{i}n(#{$numbers});
+}
+
+
