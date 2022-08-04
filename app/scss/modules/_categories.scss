@@ -1,0 +1,104 @@
+.categories {
+   margin-bottom: 120px;
+
+   &__title {
+      text-align: center;
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 1.3;
+      margin-bottom: 60px;
+   }
+
+   &__buttons {
+      display: flex;
+      margin-bottom: 45px;
+   }
+
+   &__button {
+      display: flex;
+      align-items: center;
+      border: 1px solid $shadows;
+      padding: 12px 32px;
+      color: $title;
+      background-color: $wt;
+      border-radius: 5px;
+      transition: .3s ease-in-out;
+
+      & svg {
+         width: 54px;
+         height: 45px;
+         padding-right: 10px;
+         transition: .3s ease-in-out;
+      }
+
+      &:hover {
+         color: $accent;
+         background-color: $hovershadow;
+         box-shadow: 0 0 0 2px $boxshadow;
+         & svg {
+            fill: $accent;
+         }
+      }
+
+      &:focus {
+         background-color: $wt;
+         box-shadow: 0 0 0 2px $boxshadow;
+         color: $title;
+      }
+
+      &:active {
+         background-color: $wt;
+         box-shadow: inset 0 -5px 12px $boxshadowpale;
+         color: $title;
+         & svg {
+            fill: $title;
+         }
+      }
+   }
+
+   .mixitup-control-active {
+      background-color: $accent;
+      color: $wt;
+      & svg {
+         fill: $wt;
+      }
+
+      &:hover {
+         color: $accent;
+         background-color: $hovershadow;
+         & svg {
+            fill: $accent;
+         }
+      }
+      &:focus {
+         background-color: $wt;
+         color: $title;
+         & svg {
+            fill: $title;
+         }
+      }
+   }
+   
+   &__list {
+      line-height: 1.3;
+      
+      &:not(:last-child) {
+         margin-right: 18px;
+      }
+   }
+   &__meals {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 30px;
+      margin-bottom: 60px;
+   }
+   &__link {
+      border: none;
+      background-color: transparent;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+   }
+   
+}
+   

@@ -1,0 +1,49 @@
+.mobile {
+  margin-bottom: 125px;
+
+  &__inner {
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 40vh;
+  }
+
+  &__wrapper {
+    position: relative;
+    top: 50%;
+    transform: translatey(-50%);
+  }
+
+  &__title {
+    max-width: 540px;
+    margin-bottom: 45px;
+  }
+
+  &__message {
+    margin-bottom: 30px;
+    max-width: 540px;
+  }
+
+  &__downloads {
+    display: flex;
+  }
+
+  &__link {
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+
+  &__appstore {
+    background-image: url("../images/appstore.jpg");
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+  }
+
+  &__googleplay {
+    background-image: url("../images/googleplay.jpg");
+    display: inline-block;
+    width: 135px;
+    height: 40px;
+  }
+}

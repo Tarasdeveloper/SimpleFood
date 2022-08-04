@@ -1,0 +1,142 @@
+.header {
+   padding: 57px 0;
+
+   &__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   }
+}
+
+.menu {
+   display: flex;
+   align-items: center;
+   font-size: 18px;
+   line-height: 21px;
+   
+
+   &__list {
+      display: flex;
+      margin-right: 51px;
+   }
+
+   &__item:not(:last-child) {
+      padding-right: 45px;
+   }
+
+   &__link {
+      color: $title;
+      transition: 0.3s ease;
+
+      &:hover {
+         color: $accent;
+      }
+
+      &:focus {
+         background-color: rgba(255, 255, 255, 0.01);
+         box-shadow: 0 0 0 2px $boxshadow;
+         border-radius: 5px;
+         color: $title;
+      }
+
+      &:active {
+         text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.5);
+      }
+
+      &--active {
+         color: $accent;
+      }
+   }
+}
+
+.user-nav {
+   display: flex;
+
+   &__link {
+      position: relative;
+      background-color: transparent;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      padding: 7px 10px 4px 10px;
+   }
+
+   &__search {
+      width: 23px;
+      height: 23px;
+      fill: none;
+      stroke: currentColor;
+   }
+   
+   &__cart {
+      width: 20px;
+      height: 23px;
+      fill: none;
+      stroke: currentColor;
+   }
+
+   &__links {
+      transition: .3s ease-in-out;
+
+      &:not(:last-child) {
+         margin-right: 8px;
+      }
+
+      &:hover {
+         color: $wt;
+         border-radius: 5px;
+         background-color: $hover;
+
+         & svg {
+           stroke: $wt;
+         }
+
+         & span {
+         color: $accent;
+         background-color: $wt;
+         }
+      }
+
+      &:focus {
+         background-color: $hovershadow;
+         box-shadow: 0 0 0 2px $boxshadow;
+
+         & svg {
+            fill: $title;
+         }
+
+         & span {
+            color: $wt;
+            background-color: $accent;
+         }
+      }
+
+      &:active {
+         background-color: $active;
+         box-shadow: 0 0 0 2px transparent;
+
+         & svg {
+            stroke: $title;
+         }
+
+         & span {
+            color: $wt;
+            background-color: $accent;
+         }
+      }
+   }
+
+   &__num {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: $accent;
+      top: 4px;
+      left: 25px;
+      color: $wt;
+      font-size: 10px;
+      line-height: 14px;
+      text-align: center;
+      transition: .3s ease-in-out;
+   }
+}

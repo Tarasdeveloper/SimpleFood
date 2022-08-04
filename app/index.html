@@ -45,6 +45,7 @@
                 </svg>
               </button>
             </li>
+
             <li class="user-nav__links">
               <button class="user-nav__link" type="button">
                 <span class="sr-only">корзина наших заказов</span>
@@ -56,14 +57,16 @@
               </button>
             </li>
           </ul>
+
         </div>
       </nav>
     </div>
   </header>
-
+ 
   <main class="main">
     <h1 class="sr-only">Доставка еды максимально быстро</h1>
     <div class="container">
+
       <section class="hero" style="background-image: url(./images/scooter.png)">
         <div class="hero__inner">
           <h2 class="hero__title">Доставка
@@ -277,9 +280,8 @@
           </a>
           <div class="restaurants-card__wrapper">
             <span class="restaurants-card__time">
-              <svg class="restaurants-card__clock">
-                <use xlink:href="images/sprite.svg#clock"></use>
-              </svg>
+              <span class="restaurants-card__clock"></span>
+              <span class="sr-only">Часы работы ресторана</span>
               11:00 - 22:00
             </span>
               <button class="button restaurants-card__btn">
@@ -297,9 +299,8 @@
           </a>
           <div class="restaurants-card__wrapper">
             <span class="restaurants-card__time">
-            <svg class="restaurants-card__clock">
-              <use xlink:href="images/sprite.svg#clock"></use>
-            </svg>
+              <span class="restaurants-card__clock"></span>
+              <span class="sr-only">Часы работы ресторана</span>
               12:00 - 21:00
             </span>
             <button class="button restaurants-card__btn">
@@ -317,9 +318,8 @@
           </a>
           <div class="restaurants-card__wrapper">
             <span class="restaurants-card__time">
-            <svg class="restaurants-card__clock">
-              <use xlink:href="images/sprite.svg#clock"></use>
-            </svg>
+              <span class="restaurants-card__clock"></span>
+              <span class="sr-only">Часы работы ресторана</span>
               11:00 - 22:00
             </span>
             <button class="button restaurants-card__btn">
@@ -337,9 +337,8 @@
           </a>
           <div class="restaurants-card__wrapper">
             <span class="restaurants-card__time">
-            <svg class="restaurants-card__clock">
-              <use xlink:href="images/sprite.svg#clock"></use>
-            </svg>
+              <span class="restaurants-card__clock"></span>
+              <span class="sr-only">Часы работы ресторана</span>
               06:00 - 23:00
             </span>
             <button class="button restaurants-card__btn">
@@ -357,9 +356,8 @@
           </a>
           <div class="restaurants-card__wrapper">
             <span class="restaurants-card__time">
-            <svg class="restaurants-card__clock">
-              <use xlink:href="images/sprite.svg#clock"></use>
-            </svg>
+              <span class="restaurants-card__clock"></span>
+              <span class="sr-only">Часы работы ресторана</span>
               06:00 - 23:30
             </span>
             <button class="button restaurants-card__btn">
@@ -377,9 +375,8 @@
           </a>
           <div class="restaurants-card__wrapper">
             <span class="restaurants-card__time">
-            <svg class="restaurants-card__clock">
-              <use xlink:href="images/sprite.svg#clock"></use>
-            </svg>
+              <span class="restaurants-card__clock"></span>
+              <span class="sr-only">Часы работы ресторана</span>
               09:00 - 21:00
             </span>
             <button class="button restaurants-card__btn">
@@ -515,12 +512,12 @@
           <ul class="mobile__downloads">
             <li class="mobile__link">
               <a class="mobile__appstore" href="#">
-                <img src="images/appstore.jpg" width="120" height="40" alt="ссылка скачивание из аппстор">
+                <span class="sr-only">ссылка на скачивание приложения из аппстор</span>
               </a>
             </li>
             <li class="mobile__link">
               <a class="mobile__googleplay" href="#">
-                <img src="images/googleplay.jpg" width="135" height="40" alt="ссылка на скачивание из гуглплей">
+                <span class="sr-only">ссылка на скачивание приложения из гуглплей</span>
               </a>
             </li>
           </ul>
@@ -537,8 +534,8 @@
           <a class="logo footer__logo" href="#">
             <img src="images/logo.svg" width="200" height="39" alt="логотип">
           </a>
-          <span class="sr-only">ввести свой имейл для получения рассылки</span>
-          <input class="footer-top__input" type="email" id="mail" required="required" placeholder="Ваш email">
+          <span class="sr-only">Ввести свой имейл для получения рассылки</span>
+          <input class="footer-top__input" type="email" id="mail" name="mail" required="required" placeholder="Ваш email">
           <button class="button footer-top__btn" type="submit">
             <svg class="footer-top__plane">
               <use xlink:href="images/sprite.svg#plane"></use>
@@ -585,31 +582,32 @@
           </li>
 
           <address class="footer-top__address address">
-            
-            <li class="address__list-item">
-              <a class="address__link" href="#">
-                <span class="sr-only">наш адрес на карте</span>
-                <svg>
-                  <use xlink:href="images/sprite.svg#location"></use>
-                </svg> ул. Т.Г.Шевченко, 1
-              </a>
-            </li>
-            <li class="address__list-item">
-              <a class="address__link" href="tel:+380501112233">
-                <span class="sr-only">позвонить нам</span>
-                <svg>
-                  <use xlink:href="images/sprite.svg#calling"></use>
-                </svg> 380501112233
-              </a>
-            </li>
-            <li class="address__list-item">
-              <a class="address__link" href="mailto:support@sfood.com">
-                <span class="sr-only">написать нам</span>
-                <svg>
-                  <use xlink:href="images/sprite.svg#message"></use>
-                </svg> support@sfood.com
-              </a>
-            </li>
+            <ul class="address__list">
+              <li class="address__list-item">
+                <a class="address__link" href="#">
+                  <span class="sr-only">наш адрес на карте</span>
+                  <svg>
+                    <use xlink:href="images/sprite.svg#location"></use>
+                  </svg> ул. Т.Г.Шевченко, 1
+                </a>
+              </li>
+              <li class="address__list-item">
+                <a class="address__link" href="tel:+380501112233">
+                  <span class="sr-only">позвонить нам</span>
+                  <svg>
+                    <use xlink:href="images/sprite.svg#calling"></use>
+                  </svg> 380501112233
+                </a>
+              </li>
+              <li class="address__list-item">
+                <a class="address__link" href="mailto:support@sfood.com">
+                  <span class="sr-only">написать нам</span>
+                  <svg>
+                    <use xlink:href="images/sprite.svg#message"></use>
+                  </svg> support@sfood.com
+                </a>
+              </li>
+            </ul>
             
             <ul class="address__socials">
               
@@ -651,7 +649,7 @@
         © 2022 Simple Food
       </div>
   </footer>
-
+ -->
 
 
 

@@ -1,24 +1,53 @@
-$accent: #FF6838;
-$default: #31352B;
+$accent: #ff6838;
+$default: #31352b;
 $title: #363853;
-$hover: #FF7A50;
+$hover: #ff7a50;
 $hovershadow: rgba(255, 122, 80, 0.1);
 $boxshadow: rgba(255, 104, 56, 0.7);
-$active:#FFF2ED;
-$backgr: #F9FAFF;
-$shadows: #ECECEC;
+$active: #fff2ed;
+$backgr: #f9faff;
+$shadows: #ececec;
 $wt: #ffffff;
 $pale: rgba(255, 255, 255, 0.01);
 $boxshadowpale: rgba(255, 104, 56, 0.2);
-$footer: #C2C2C2;
+$footer: #c2c2c2;
 
+@mixin r($width) {
+  @media (max-width: #{$width}px) {
+    @content;
+  }
+}
 
+// Использование миксина
+// .class {
+//   font-size: 30px;
+// 	@include r(768) {
+// 		font-size: 20px;
+// 	}
+// }
 
 @function max($numbers...) {
-   @return m#{a}x(#{$numbers});
+  @return m#{a}x(#{$numbers});
 }
 @function min($numbers...) {
-   @return m#{i}n(#{$numbers});
+  @return m#{i}n(#{$numbers});
 }
 
+// ____Обрезка текста_____
+@mixin line-clamp($lines: 1) {
+  @if $lines <=1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+  }
+}
 
+//  .class{
+//     @include line-clamp(3);
+//  }
