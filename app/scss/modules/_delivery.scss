@@ -1,57 +1,100 @@
 .delivery {
-   background-repeat: no-repeat;
-   margin-left: 70px;
-   margin-bottom: 113px;
-   height: 62vh;
+  background-repeat: no-repeat;
+  margin-left: 70px;
+  margin-bottom: 123px;
+  height: 61vh;
+  background-size: contain;
 
-   &__inner {
-      max-width: 470px;
-      margin-left: auto;
-      margin-right: 70px;
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
-      
-      & svg {
-         width: 34px;
-         height: 34px;
-         margin-right: 30px;
+  @include r($r-tb) {
+    box-shadow: inset 0px 0px 50vh 1px $boxmobile;
+  }
 
-         &.timer {
-            fill: $accent;
-         }
-         &.scooter {
-            fill: #00AAFF;
-         }
-         &.restaurant {
-            fill: #FF2222;
-         }
+  @include r($r-tm) {
+    margin-bottom: 40px;
+  }
+
+  @include r($r-ph) {
+    margin-left: 0;
+    height: 49vh;
+  }
+
+  &__inner {
+    max-width: 470px;
+    margin-left: auto;
+    margin-right: 70px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include r($r-tm) {
+      margin: 0;
+      max-width: 350px;
+    }
+
+    & svg {
+      width: 34px;
+      height: 34px;
+      margin-right: 30px;
+
+      @include r($r-ph) {
+        margin-right: 10px;
       }
-   }
-   &__title {
-      margin-bottom: 29px;
-   }
 
-   &__message {
-      opacity: 0.9;
-      margin-bottom: 30px;
-   }
-
-   &__list {
-      margin-bottom: 32px;
-   }
-
-   &__service {
-      display: flex;
-      align-items: center;
-      font-size: 24px;
-
-      &:not(:last-child) {
-         margin-bottom: 20px;
+      &.timer {
+        fill: $accent;
       }
-   }
+      &.scooter {
+        fill: #00aaff;
+      }
+      &.restaurant {
+        fill: #ff2222;
+      }
+    }
+  }
+  &__title {
+    margin-bottom: 30px;
+    @include line-clamp(2);
+  }
 
-   &__button {
+  &__message {
+    opacity: 0.9;
+    margin-bottom: 30px;
+    @include line-clamp(7);
+
+    @include r($r-tm) {
+      font-size: 16px;
+    }
+  }
+
+  &__list {
+    margin-bottom: 32px;
+
+    @include r($r-ph) {
+      margin-bottom: 23px;
+    }
+  }
+
+  &__service {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    //  @include line-clamp(1);
+
+    @include r($r-tm) {
       font-size: 18px;
-   }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__button {
+    font-size: 18px;
+
+    @include r($r-ph) {
+      font-size: 14px;
+      padding: 8px 33px;
+    }
+  }
 }

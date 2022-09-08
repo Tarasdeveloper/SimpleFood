@@ -1,142 +1,375 @@
 .header {
-   padding: 57px 0;
+  padding: 60px 0;
 
-   &__inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-   }
+  @include r($r-ph) {
+    padding: 25px 0;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include r($r-ph) {
+      align-items: start;
+    }
+  }
 }
 
 .menu {
-   display: flex;
-   align-items: center;
-   font-size: 18px;
-   line-height: 21px;
-   
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  line-height: 1.17;
 
-   &__list {
-      display: flex;
-      margin-right: 51px;
-   }
+  &__list {
+    display: flex;
+    margin-right: 51px;
 
-   &__item:not(:last-child) {
+    @include r($r-tm) {
+      display: none;
+    }
+  }
+
+  &__item {
+    @include r($r-tm) {
+      padding: 10px 0;
+    }
+
+    &:not(:last-child) {
       padding-right: 45px;
-   }
+    }
+  }
 
-   &__link {
+  &__mobile {
+    display: none;
+    transition: 0.3s ease-in-out;
+
+    @include r($r-tm) {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      overflow: auto;
+      background-color: $wt;
+      height: 100vh;
+      padding-left: 15px;
+      transform: translateX(-100%);
+      padding-top: 63px;
+      margin-right: 75px;
+      z-index: 1;
+    }
+
+    @include r($r-ph) {
+      padding-top: 25px;
+    }
+
+    & .logo {
+      margin-right: 10px;
+
+      @include r($r-ph) {
+        width: 200px;
+        height: 39px;
+      }
+    }
+
+    &.active {
+      transform: translateX(0);
+    }
+  }
+
+  &__mobile-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $footerborder;
+    padding-bottom: 25px;
+    margin-bottom: 15px;
+  }
+
+  &__mobile-list {
+    border-bottom: 1px solid $footerborder;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+  }
+
+  &__link {
+    color: $title;
+    transition: 0.3s ease;
+
+    &:hover {
+      color: $accent;
+    }
+
+    &:focus {
+      background-color: rgba(255, 255, 255, 0.01);
+      box-shadow: 0 0 0 2px $boxshadow;
+      border-radius: 5px;
       color: $title;
-      transition: 0.3s ease;
+    }
 
-      &:hover {
-         color: $accent;
-      }
+    &:active {
+      text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.5);
+    }
 
-      &:focus {
-         background-color: rgba(255, 255, 255, 0.01);
-         box-shadow: 0 0 0 2px $boxshadow;
-         border-radius: 5px;
-         color: $title;
-      }
-
-      &:active {
-         text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.5);
-      }
-
-      &--active {
-         color: $accent;
-      }
-   }
+    &--active {
+      color: $accent;
+    }
+  }
 }
 
 .user-nav {
-   display: flex;
+  display: flex;
 
-   &__link {
-      position: relative;
-      background-color: transparent;
-      border: 2px solid transparent;
-      border-radius: 5px;
-      padding: 7px 10px 4px 10px;
-   }
+  @include r($r-tm) {
+    padding-right: 20px;
+  }
 
-   &__search {
-      width: 23px;
-      height: 23px;
-      fill: none;
-      stroke: currentColor;
-   }
-   
-   &__cart {
-      width: 20px;
-      height: 23px;
-      fill: none;
-      stroke: currentColor;
-   }
+  &__link {
+    position: relative;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 7px 10px 2px 10px;
+  }
 
-   &__links {
-      transition: .3s ease-in-out;
+  &__search {
+    width: 23px;
+    height: 23px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+  }
 
-      &:not(:last-child) {
-         margin-right: 8px;
-      }
+  &__cart {
+    width: 20px;
+    height: 23px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+  }
 
-      &:hover {
-         color: $wt;
-         border-radius: 5px;
-         background-color: $hover;
+  &__links {
+    transition: 0.3s ease-in-out;
 
-         & svg {
-           stroke: $wt;
-         }
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
 
-         & span {
-         color: $accent;
-         background-color: $wt;
-         }
-      }
-
-      &:focus {
-         background-color: $hovershadow;
-         box-shadow: 0 0 0 2px $boxshadow;
-
-         & svg {
-            fill: $title;
-         }
-
-         & span {
-            color: $wt;
-            background-color: $accent;
-         }
-      }
-
-      &:active {
-         background-color: $active;
-         box-shadow: 0 0 0 2px transparent;
-
-         & svg {
-            stroke: $title;
-         }
-
-         & span {
-            color: $wt;
-            background-color: $accent;
-         }
-      }
-   }
-
-   &__num {
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background-color: $accent;
-      top: 4px;
-      left: 25px;
+    &:hover {
       color: $wt;
-      font-size: 10px;
-      line-height: 14px;
-      text-align: center;
-      transition: .3s ease-in-out;
-   }
+      border-radius: 5px;
+      background-color: $hover;
+
+      & svg {
+        stroke: $wt;
+      }
+
+      & span {
+        color: $accent;
+        background-color: $wt;
+      }
+    }
+
+    &:focus {
+      background-color: $hovershadow;
+      box-shadow: 0 0 0 2px $boxshadow;
+
+      & svg {
+        fill: $title;
+      }
+
+      & span {
+        color: $wt;
+        background-color: $accent;
+      }
+    }
+
+    &:active {
+      background-color: $active;
+      box-shadow: 0 0 0 2px transparent;
+
+      & svg {
+        stroke: $title;
+      }
+
+      & span {
+        color: $wt;
+        background-color: $accent;
+      }
+    }
+  }
+
+  &__num {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: $accent;
+    top: 4px;
+    left: 25px;
+    color: $wt;
+    font-size: 10px;
+    line-height: 14px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+  }
+}
+
+.menu-btn {
+  background-color: transparent;
+  width: 30px;
+  height: 20px;
+  border: none;
+  display: none;
+  padding: 0;
+  transition: 0.5s ease-in-out;
+  position: relative;
+  margin-right: 5px;
+
+  @include r($r-tm) {
+    display: block;
+    z-index: 4;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    background-color: $title;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    transition: 0.3s ease;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+
+  & span {
+    position: absolute;
+    background-color: $title;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    top: 9px;
+  }
+}
+
+.menu-btnclose {
+  margin-right: 26px;
+  background-color: transparent;
+  width: 25px;
+  height: 25px;
+  border: none;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    background-color: $title;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+.address {
+  &__list {
+    font-size: 16px;
+    line-height: 2;
+  }
+
+  &__list-item {
+    margin-bottom: 15px;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: $accent;
+    }
+
+    &:focus {
+      color: currentColor;
+      box-shadow: 0 0 0 2px $boxshadow;
+    }
+
+    &:active {
+      color: $title;
+      text-shadow: 2px 2px 5px rgba(54, 56, 83, 0.5);
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+
+    & svg {
+      stroke: currentColor;
+      stroke-width: 1.5;
+      fill: none;
+      width: 24px;
+      height: 24px;
+      margin-right: 7px;
+    }
+  }
+  &__socials {
+    display: flex;
+  }
+
+  &__social {
+    display: flex;
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    background-color: $shadows;
+    margin-right: 13px;
+    position: relative;
+    transition: 0.3s ease-in-out;
+    width: 39px;
+
+    & svg {
+      fill: currentColor;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+
+    &:hover {
+      background-color: $accent;
+      & svg {
+        fill: $wt;
+      }
+    }
+
+    &:focus {
+      background-color: $active;
+      box-shadow: 0 0 0 2px $boxshadow;
+    }
+
+    &:active {
+      background-color: $active;
+
+      & svg {
+        fill: $hover;
+      }
+    }
+  }
 }

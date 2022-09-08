@@ -1,26 +1,55 @@
 .mobile {
   margin-bottom: 125px;
 
+  @include r($r-tm) {
+    margin-bottom: 0;
+  }
+
   &__inner {
     background-repeat: no-repeat;
     background-position: right;
     height: 40vh;
+    object-fit: contain;
+
+    @include r($r-tb) {
+      height: 24vh;
+    }
   }
 
   &__wrapper {
     position: relative;
     top: 50%;
     transform: translatey(-50%);
+
+    @include r($r-tb) {
+      height: inherit;
+      background-color: $backgr;
+    }
   }
 
   &__title {
     max-width: 540px;
     margin-bottom: 45px;
+
+    @include r($r-tm) {
+      margin-bottom: 25px;
+    }
+
+    @include r($r-ph) {
+      margin-bottom: 15px;
+    }
   }
 
   &__message {
-    margin-bottom: 30px;
     max-width: 540px;
+    margin-bottom: 30px;
+    max-width: 520px;
+    @include line-clamp(7);
+
+    @include r($r-tm) {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
   }
 
   &__downloads {

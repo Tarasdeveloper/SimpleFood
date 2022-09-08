@@ -1,45 +1,84 @@
 .hero {
-   margin-bottom: 120px;
-   background-repeat: no-repeat;
-   background-size: cover;
-   background-position: right 0;
-   background-size: 48%;
-   height: 69vh;
-   
-   &__inner {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
-   }
+  margin-bottom: 120px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right 0;
+  background-size: contain;
+  height: 69vh;
 
-   &__title {
-      font-size: 66px;
-      line-height: 1.3;
-      color: $title;
-      font-family: 'Rubik';
-      font-weight: 500;
-      max-width: 450px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-   }
+  @include r($r-tb) {
+    height: 55vh;
+  }
 
-   &__span {
-      color: $accent;
-   }
+  @include r($r-tm) {
+    height: 45vh;
+    margin-bottom: 40px;
+    box-shadow: inset 0px 0px 50vh 1px #f9faffd9;
+  }
 
-   &__message {
-      max-width: 450px;
-      margin-bottom: 20px;
-   }
+  @include r($r-ph) {
+    height: 32vh;
+  }
 
-   &__buttons {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 292px;
-      letter-spacing: 0.03em;
-      font-size: 18px;
-   }
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__title {
+    font-size: 66px;
+    line-height: 1.3;
+    color: $title;
+    font-family: "Rubik";
+    font-weight: 500;
+    max-width: 450px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    @include line-clamp(3);
+
+    @include r($r-tb) {
+      font-size: 45px;
+      max-width: 300px;
+    }
+
+    @include r($r-tm) {
+      font-size: 40px;
+      max-width: 270px;
+    }
+  }
+
+  &__span {
+    color: $accent;
+  }
+
+  &__message {
+    max-width: 450px;
+    margin-bottom: 20px;
+    @include line-clamp(5);
+
+    @include r($r-tb) {
+      max-width: 310px;
+      font-size: 16px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 292px;
+    letter-spacing: 0.03em;
+    font-size: 18px;
+
+    @include r($r-tb) {
+      max-width: 250px;
+    }
+
+    @include r($r-ph) {
+      max-width: 228px;
+    }
+  }
 }

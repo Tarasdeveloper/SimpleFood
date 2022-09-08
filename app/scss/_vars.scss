@@ -11,20 +11,19 @@ $wt: #ffffff;
 $pale: rgba(255, 255, 255, 0.01);
 $boxshadowpale: rgba(255, 104, 56, 0.2);
 $footer: #c2c2c2;
+$boxmobile: rgba(249, 250, 255, 0.85);
+$footerborder: rgba(194, 194, 194, 0.2);
+
+$r-dt: 1155;
+$r-tb: 992;
+$r-tm: 768;
+$r-ph: 576;
 
 @mixin r($width) {
   @media (max-width: #{$width}px) {
     @content;
   }
 }
-
-// Использование миксина
-// .class {
-//   font-size: 30px;
-// 	@include r(768) {
-// 		font-size: 20px;
-// 	}
-// }
 
 @function max($numbers...) {
   @return m#{a}x(#{$numbers});
@@ -47,7 +46,4 @@ $footer: #c2c2c2;
     -webkit-box-orient: vertical;
   }
 }
-
-//  .class{
-//     @include line-clamp(3);
-//  }
+//   @include line-clamp(3);

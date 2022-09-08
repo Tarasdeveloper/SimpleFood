@@ -1,104 +1,158 @@
 .categories {
-   margin-bottom: 120px;
+  margin-bottom: 120px;
 
-   &__title {
-      text-align: center;
-      font-weight: 500;
-      font-size: 36px;
-      line-height: 1.3;
-      margin-bottom: 60px;
-   }
+  @include r($r-tm) {
+    margin-bottom: 40px;
+  }
 
-   &__buttons {
-      display: flex;
-      margin-bottom: 45px;
-   }
+  &__title {
+    text-align: center;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 1.3;
+    margin-bottom: 60px;
+    @include line-clamp(1);
 
-   &__button {
-      display: flex;
-      align-items: center;
-      border: 1px solid $shadows;
-      padding: 12px 32px;
-      color: $title;
+    @include r($r-tm) {
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    margin-bottom: 43px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+    @include r($r-tm) {
+      padding: 2px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    border: 1px solid $shadows;
+    padding: 12px 32px;
+    color: $title;
+    background-color: $wt;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    scroll-snap-align: start;
+    @include line-clamp(1);
+
+    @include r($r-tm) {
+      padding: 11px 16px;
+      font-size: 14px;
+    }
+
+    & svg {
+      width: 54px;
+      height: 45px;
+      padding-right: 10px;
+      transition: 0.3s ease-in-out;
+
+      @include r($r-tm) {
+        height: 20px;
+        width: 30px;
+      }
+    }
+
+    &:hover {
+      color: $accent;
+      background-color: $hovershadow;
+      box-shadow: 0 0 0 2px $boxshadow;
+      & svg {
+        fill: $accent;
+      }
+    }
+
+    &:focus {
       background-color: $wt;
-      border-radius: 5px;
-      transition: .3s ease-in-out;
+      box-shadow: 0 0 0 2px $boxshadow;
+      color: $title;
+    }
 
+    &:active {
+      background-color: $wt;
+      box-shadow: inset 0 -5px 12px $boxshadowpale;
+      color: $title;
       & svg {
-         width: 54px;
-         height: 45px;
-         padding-right: 10px;
-         transition: .3s ease-in-out;
+        fill: $title;
       }
+    }
+  }
 
-      &:hover {
-         color: $accent;
-         background-color: $hovershadow;
-         box-shadow: 0 0 0 2px $boxshadow;
-         & svg {
-            fill: $accent;
-         }
+  &__list {
+    line-height: 1.3;
+
+    &:not(:last-child) {
+      margin-right: 18px;
+
+      @include r($r-tm) {
+        margin-right: 10px;
       }
+    }
+  }
 
-      &:focus {
-         background-color: $wt;
-         box-shadow: 0 0 0 2px $boxshadow;
-         color: $title;
-      }
+  &__meals {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
 
-      &:active {
-         background-color: $wt;
-         box-shadow: inset 0 -5px 12px $boxshadowpale;
-         color: $title;
-         & svg {
-            fill: $title;
-         }
-      }
-   }
+    @include r($r-dt) {
+      gap: 10px;
+    }
+    @include r($r-tb) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @include r($r-tm) {
+      grid-template-columns: repeat(3, 1fr);
+      margin-bottom: 30px;
+    }
+    @include r($r-ph) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5px;
+    }
+  }
 
-   .mixitup-control-active {
-      background-color: $accent;
-      color: $wt;
+  &__link {
+    border: none;
+    background-color: transparent;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .mixitup-control-active {
+    background-color: $accent;
+    color: $wt;
+    & svg {
+      fill: $wt;
+    }
+
+    &:hover {
+      color: $accent;
+      background-color: $hovershadow;
       & svg {
-         fill: $wt;
+        fill: $accent;
       }
+    }
 
-      &:hover {
-         color: $accent;
-         background-color: $hovershadow;
-         & svg {
-            fill: $accent;
-         }
+    &:focus {
+      background-color: $wt;
+      color: $title;
+      & svg {
+        fill: $title;
       }
-      &:focus {
-         background-color: $wt;
-         color: $title;
-         & svg {
-            fill: $title;
-         }
-      }
-   }
-   
-   &__list {
-      line-height: 1.3;
-      
-      &:not(:last-child) {
-         margin-right: 18px;
-      }
-   }
-   &__meals {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 30px;
-      margin-bottom: 60px;
-   }
-   &__link {
-      border: none;
-      background-color: transparent;
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
-   }
-   
+    }
+  }
 }
-   
