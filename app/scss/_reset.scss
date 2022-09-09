@@ -46,6 +46,8 @@ button {
   cursor: pointer;
   background-color: transparent;
   color: inherit;
+  font-family: inherit;
+  outline: transparent;
 }
 
 input,
@@ -53,7 +55,7 @@ button,
 textarea,
 select {
   font: inherit;
-  outline: none;
+  outline: transparent;
 }
 
 a {

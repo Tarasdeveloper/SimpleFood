@@ -143,7 +143,7 @@ body {
   background-color: $wt;
   border: 1px solid $shadows;
   border-radius: 5px;
-  padding: 20px 10px;
+  padding: 20px 9px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -166,6 +166,7 @@ body {
 
   &__img {
     margin-bottom: 10px;
+    object-fit: contain;
   }
 
   &__title {
@@ -196,7 +197,7 @@ body {
   max-width: 370px;
 
   @include r($r-ph) {
-    margin-bottom: 15px;
+    margin-bottom: 17px;
   }
 
   &:hover {
@@ -221,7 +222,8 @@ body {
 
   & img {
     margin-bottom: 15px;
-    object-fit: fill;
+    object-fit: cover;
+    border-radius: 10px 10px 0px 0px;
   }
 
   &__clock {

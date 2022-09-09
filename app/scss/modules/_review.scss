@@ -45,7 +45,7 @@
     @include r($r-ph) {
       max-height: 100px;
       max-width: 100px;
-      margin: 0 auto 30px;
+      margin: 0 auto 28px;
     }
   }
 
@@ -68,7 +68,10 @@
     margin-right: 16px;
 
     @include r($r-ph) {
-      margin-right: 10px;
+      margin-right: 15px;
+      position: relative;
+      top: -11px;
+      left: 5px;
     }
   }
 
@@ -80,6 +83,9 @@
     }
     @include r($r-ph) {
       margin-top: 40%;
+      position: relative;
+      bottom: 3px;
+      right: 5px;
     }
   }
 
@@ -206,7 +212,7 @@
     left: 40%;
 
     @include r($r-ph) {
-      left: 9%;
+      left: 10%;
       bottom: 81%;
     }
   }
@@ -216,6 +222,10 @@
     justify-content: center;
 
     @include r($r-tb) {
+      display: none;
+    }
+
+    @include r($r-ph) {
       display: none;
     }
 

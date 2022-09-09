@@ -2,7 +2,7 @@
   padding: 60px 0;
 
   @include r($r-ph) {
-    padding: 25px 0;
+    padding: 15px 0;
   }
 
   &__inner {
@@ -92,7 +92,7 @@
   &__mobile-list {
     border-bottom: 1px solid $footerborder;
     padding-bottom: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   &__link {
@@ -264,7 +264,7 @@
 }
 
 .menu-btnclose {
-  margin-right: 26px;
+  margin-right: 22px;
   background-color: transparent;
   width: 25px;
   height: 25px;
