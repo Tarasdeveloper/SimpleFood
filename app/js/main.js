@@ -1,9 +1,24 @@
 $(function(){
 
+   $(window).scroll(function() {
+      if ($(window).scrollTop() > 50) {
+         $('.header').addClass('sticky')
+      } else {
+         $('.header').removeClass('sticky')
+      }
+   });
+
    $('.review__slider').slick({
       dots: true,
       prevArrow: '<span class="review__arrow review__arrow-left"><svg><use xlink:href="images/sprite.svg#prevarrow"></use></svg>',
-      nextArrow: '<span class="review__arrow review__arrow-right"><svg><use xlink:href="images/sprite.svg#nextarrow"></use></svg>'
+      nextArrow: '<span class="review__arrow review__arrow-right"><svg><use xlink:href="images/sprite.svg#nextarrow"></use></svg>',
+
+      responsive: [{
+         breakpoint: 992, 
+         settings: {
+            dots: false, 
+         }
+     }]
    });
 
    var mixer = mixitup('.categories__meals');
@@ -17,16 +32,25 @@ $(function(){
             dots: true
          });
       } else {
-         false
+         $('.restaurants__inner').slick('unslick')
       }
     }
-    mediaQuery.addListener(handleTabletChange)
-    handleTabletChange(mediaQuery)
+    mediaQuery.addListener(handleTabletChange);
+    handleTabletChange(mediaQuery);
 
 
     $('.menu-btn, .menu-btnclose').on('click', function() {
-      $('.menu-btn,.menu__mobile').toggleClass('active');
+      $('.menu-btn, .menu__mobile').toggleClass('active');
       $('body').toggleClass('lock');
    });
+
+//   document.addEventListener('click', function (e) {
+//    if (e.target !== burger && e.target !== mobileMenu) {
+//      burger.classList.remove('burger--active');
+//      mobileMenu.classList.remove('menu--active');
+//      bodyLock.classList.remove('lock');
+//    }
+//  });
+
 
 });

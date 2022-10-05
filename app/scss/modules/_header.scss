@@ -1,5 +1,11 @@
 .header {
   padding: 60px 0;
+  position: sticky;
+  top: 0;
+  right: 0;
+  background-color: $backgrstick;
+  z-index: 4;
+  transition: 0.3s ease-in-out;
 
   @include r($r-ph) {
     padding: 15px 0;
@@ -13,6 +19,10 @@
     @include r($r-ph) {
       align-items: start;
     }
+  }
+  &.sticky {
+    padding: 15px 0;
+    box-shadow: 0 2px 8px $title;
   }
 }
 
@@ -58,11 +68,12 @@
       padding-left: 15px;
       transform: translateX(-100%);
       padding-top: 63px;
-      margin-right: 75px;
-      z-index: 1;
+      margin-right: 275px;
+      z-index: 5;
     }
 
     @include r($r-ph) {
+      margin-right: 75px;
       padding-top: 25px;
     }
 

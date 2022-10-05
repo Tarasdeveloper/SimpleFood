@@ -15,7 +15,7 @@
 
     @include r($r-tm) {
       font-size: 24px;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
   }
 
@@ -103,7 +103,7 @@
       margin-right: 16px;
 
       @include r($r-tm) {
-        margin-right: 10px;
+        margin-right: 3px;
       }
     }
   }

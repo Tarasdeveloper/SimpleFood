@@ -5,17 +5,14 @@
   height: 61vh;
   background-size: contain;
 
-  @include r($r-tb) {
-    box-shadow: inset 0px 0px 50vh 1px $boxmobile;
-  }
-
   @include r($r-tm) {
+    box-shadow: inset 0px 100vh 50vh 1px $boxmobile;
     margin-bottom: 35px;
   }
 
   @include r($r-ph) {
     margin-left: 0;
-    height: 49vh;
+    height: 52vh;
   }
 
   &__inner {
@@ -25,10 +22,18 @@
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+    background-color: $backgrstick;
+    border-radius: 20px;
+
+    @include r($r-dt) {
+      padding-left: 10px;
+    }
 
     @include r($r-tm) {
       margin: 0;
       max-width: 350px;
+      padding-left: 0;
+      background-color: inherit;
     }
 
     & svg {
@@ -52,7 +57,7 @@
     }
   }
   &__title {
-    margin-bottom: 30px;
+    margin-bottom: 28px;
     @include line-clamp(2);
   }
 

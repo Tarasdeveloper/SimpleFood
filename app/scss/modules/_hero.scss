@@ -1,7 +1,6 @@
 .hero {
   margin-bottom: 120px;
   background-repeat: no-repeat;
-  background-size: cover;
   background-position: right 0;
   background-size: contain;
   height: 69vh;
@@ -13,12 +12,12 @@
   @include r($r-tm) {
     height: 45vh;
     margin-bottom: 40px;
-    box-shadow: inset 0px 0px 50vh 1px #f9faffd9;
   }
 
   @include r($r-ph) {
-    height: 32vh;
-    margin-bottom: 35px;
+    box-shadow: inset 0px 50vh 50vh 1px #f9faffd9;
+    height: 33.5vh;
+    margin-bottom: 43px;
   }
 
   &__inner {
@@ -27,6 +26,16 @@
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+
+    @include r($r-tm) {
+      background-color: $backgrstick;
+      max-width: 320px;
+      border-radius: 70px;
+    }
+
+    @include r($r-ph) {
+      background-color: inherit;
+    }
   }
 
   &__title {
