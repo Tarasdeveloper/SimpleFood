@@ -11,11 +11,14 @@
 @import './modules/review';
 @import './modules/mobile';
 @import './modules/footer';
+@import './modules/breadcrumbs';
+@import './modules/catalogue';
 
 
 
 
 
+// @include('components/_top.html', {"pageTitle": "Blog details"});
 
 
 

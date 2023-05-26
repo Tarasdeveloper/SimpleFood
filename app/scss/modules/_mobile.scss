@@ -1,7 +1,7 @@
 .mobile {
   margin-bottom: 125px;
 
-  @include r($r-tm) {
+  @include r($r-tb) {
     margin-bottom: 15px;
   }
 
@@ -11,7 +11,11 @@
     height: 40vh;
     object-fit: contain;
 
-    @include r($r-tm) {
+    @include r($r-tb) {
+      background-image: none !important;
+    }
+
+    @include r($r-ph) {
       height: 25vh;
     }
   }
@@ -24,9 +28,8 @@
     background-color: $backgrstick;
     border-radius: 20px;
 
-    @include r($r-tb) {
-      height: inherit;
-      background-color: $backgr;
+    @include r($r-ph) {
+      max-width: 400px;
     }
   }
 
@@ -49,7 +52,7 @@
     max-width: 520px;
     @include line-clamp(7);
 
-    @include r($r-tm) {
+    @include r($r-ph) {
       font-size: 14px;
       margin-bottom: 15px;
     }

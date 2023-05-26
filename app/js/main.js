@@ -1,7 +1,13 @@
-$(function(){
+$(function () {
 
-   $(window).scroll(function() {
-      if ($(window).scrollTop() > 50) {
+   $('.filter-price__input').ionRangeSlider({
+      type: "double",
+      prefix: "от",
+      postfix: " €",
+   });
+
+   $(window).scroll(function () {
+      if ($(window).scrollTop() >= 50) {
          $('.header').addClass('sticky')
       } else {
          $('.header').removeClass('sticky')
@@ -14,11 +20,11 @@ $(function(){
       nextArrow: '<span class="review__arrow review__arrow-right"><svg><use xlink:href="images/sprite.svg#nextarrow"></use></svg>',
 
       responsive: [{
-         breakpoint: 992, 
+         breakpoint: 992,
          settings: {
-            dots: false, 
+            dots: false,
          }
-     }]
+      }]
    });
 
    var mixer = mixitup('.categories__meals');
@@ -34,23 +40,23 @@ $(function(){
       } else {
          $('.restaurants__inner').slick('unslick')
       }
-    }
-    mediaQuery.addListener(handleTabletChange);
-    handleTabletChange(mediaQuery);
+   }
+   mediaQuery.addListener(handleTabletChange);
+   handleTabletChange(mediaQuery);
 
 
-    $('.menu-btn, .menu-btnclose').on('click', function() {
+   $('.menu-btn, .menu-btnclose').on('click', function () {
       $('.menu-btn, .menu__mobile').toggleClass('active');
       $('body').toggleClass('lock');
    });
 
-//   document.addEventListener('click', function (e) {
-//    if (e.target !== burger && e.target !== mobileMenu) {
-//      burger.classList.remove('burger--active');
-//      mobileMenu.classList.remove('menu--active');
-//      bodyLock.classList.remove('lock');
-//    }
-//  });
-
+   //   document.addEventListener('click', function (e) {
+   //    if (e.target !== burger && e.target !== mobileMenu) {
+   //      burger.classList.remove('burger--active');
+   //      mobileMenu.classList.remove('menu--active');
+   //      bodyLock.classList.remove('lock');
+   //    }
+   //  });
+   
 
 });

@@ -1,8 +1,9 @@
 .header {
   padding: 60px 0;
-  position: sticky;
+  position: fixed;
   top: 0;
   right: 0;
+  left: 0;
   background-color: $backgrstick;
   z-index: 4;
   transition: 0.3s ease-in-out;
@@ -109,6 +110,7 @@
   &__link {
     color: $title;
     transition: 0.3s ease;
+    outline: none;
 
     &:hover {
       color: $accent;

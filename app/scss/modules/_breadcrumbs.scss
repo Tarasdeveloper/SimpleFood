@@ -1,0 +1,16 @@
+.breadcrumbs {
+   margin-top: 160px;
+   padding: 24px 0;
+   background-color: $hovershadow;
+
+   &__list {
+      display: flex;
+      gap: 6px;
+   }
+
+   &__link {
+      font-size: 14px;
+      letter-spacing: 0.03em;
+      color: $breadcrumbscolor;
+   }
+}
